@@ -9,7 +9,7 @@ ns_domain_cloudflare() {
 	CF_ID=bezzoperantau9699@gmail.com
         CF_KEY=0b20eeb1c9762917c3aee1143d5a36b1931c0
 	set -euo pipefail
-	IP=$(wget -qO- ipinfo.io/ip)
+	IP=$(wget -qO- ipv4.icanhazip.com/ip)
 	echo "Updating DNS NS for ${NS_DOMAIN}..."
 	ZONE=$(
 		curl -sLX GET "https://api.cloudflare.com/client/v4/zones?name=${DOMAIN}&status=active" \
