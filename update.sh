@@ -22,18 +22,13 @@ sleep 3
 echo -e " [INFO] Downloading Update File" | lolcat
 sleep 2
 rm -rf /tmp/menu
-wget -O /tmp/menu-master.zip "${REPO}config/menu.zip" >/dev/null 2>&1
-    mkdir /tmp/menu
-    7z e  /tmp/menu-master.zip -o/tmp/menu/ >/dev/null 2>&1
-    chmod +x /tmp/menu/*
-    mv /tmp/menu/* /usr/sbin/
-echo -e " [INFO] Update Successfully" | lolcat
-mkdir -p /etc/ssh
-mkdir -p /etc/vmx
-mkdir -p /etc/vls
-mkdir -p /etc/tr
-mkdir -p /etc/ss
-rm -rf update.sh
+wget https://raw.githubusercontent.com/basir96/hooh/ipuk/config/menu.zip
+    unzip menu.zip
+    chmod +x menu/*
+    mv menu/* /usr/local/sbin
+    rm -rf menu
+    rm -rf menu.zip
+    rm -rf update.sh
 sleep 2
 read -n 1 -s -r -p "Press [ Enter ] to back on menu"
 menu
